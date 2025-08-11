@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4f66e503ed28ec4b9fc4d7cbf57da220 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_4f66e503ed28ec4b9fc4d7cbf57da220" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4f66e503ed28ec4b9fc4d7cbf57da220 = L.map(
+                "map_4f66e503ed28ec4b9fc4d7cbf57da220",
+                {
+                    center: [38.5397258, -121.749918],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2aa118dc9aacbf5c5d97caf5865f5347 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_4f66e503ed28ec4b9fc4d7cbf57da220);
+        
+    
+            var marker_72edb4ed88c5b2a1dcaf84cf44aa5bc9 = L.marker(
+                [38.5397258, -121.749918],
+                {}
+            ).addTo(map_4f66e503ed28ec4b9fc4d7cbf57da220);
+        
+    
+            var icon_53ca862fa33bd3691762f2c98d08afed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_72edb4ed88c5b2a1dcaf84cf44aa5bc9.setIcon(icon_53ca862fa33bd3691762f2c98d08afed);
+        
+    
+        var popup_960c7d929419c655a9fa0ee80e8c268a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3f0204906ffb2b5bd88e2bb3884250ca = $(`<div id="html_3f0204906ffb2b5bd88e2bb3884250ca" style="width: 100.0%; height: 100.0%;">1 Shields Ave, Davis, CA</div>`)[0];
+                popup_960c7d929419c655a9fa0ee80e8c268a.setContent(html_3f0204906ffb2b5bd88e2bb3884250ca);
+            
+        
+
+        marker_72edb4ed88c5b2a1dcaf84cf44aa5bc9.bindPopup(popup_960c7d929419c655a9fa0ee80e8c268a)
+        ;
+
+        
+    
+    
+            var marker_99e3c9a3e1ce52afa162b4add335d8bf = L.marker(
+                [38.5413673, -121.7407041],
+                {}
+            ).addTo(map_4f66e503ed28ec4b9fc4d7cbf57da220);
+        
+    
+            var icon_901a9d312e0dcc1a68a35b11910cab19 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_99e3c9a3e1ce52afa162b4add335d8bf.setIcon(icon_901a9d312e0dcc1a68a35b11910cab19);
+        
+    
+        var popup_25890e7ab9f7a39885918669e5bdfd52 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a56336edbff8d158718d3a956bc4c72c = $(`<div id="html_a56336edbff8d158718d3a956bc4c72c" style="width: 100.0%; height: 100.0%;">500 1st St, Davis, CA</div>`)[0];
+                popup_25890e7ab9f7a39885918669e5bdfd52.setContent(html_a56336edbff8d158718d3a956bc4c72c);
+            
+        
+
+        marker_99e3c9a3e1ce52afa162b4add335d8bf.bindPopup(popup_25890e7ab9f7a39885918669e5bdfd52)
+        ;
+
+        
+    
+    
+            var poly_line_7c0eceec7babc0fa484de01c58066177 = L.polyline(
+                [[38.538731, -121.749212], [38.538761, -121.748856], [38.538595, -121.748801], [38.538648, -121.748371], [38.538416, -121.748287], [38.538381, -121.748235], [38.538497, -121.747655], [38.539028, -121.747185], [38.539543, -121.746414], [38.53963, -121.746409], [38.539891, -121.746563], [38.540165, -121.745803], [38.54096, -121.74606], [38.541749, -121.741793], [38.540851, -121.74154], [38.540875, -121.741411], [38.541147, -121.741153], [38.541065, -121.741017]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_4f66e503ed28ec4b9fc4d7cbf57da220);
+        
+    
+        var popup_4050e91543ce8a0d0871801365148cac = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7e084702d666d79a92131c2a3bf724cc = $(`<div id="html_7e084702d666d79a92131c2a3bf724cc" style="width: 100.0%; height: 100.0%;">Walker A's Path</div>`)[0];
+                popup_4050e91543ce8a0d0871801365148cac.setContent(html_7e084702d666d79a92131c2a3bf724cc);
+            
+        
+
+        poly_line_7c0eceec7babc0fa484de01c58066177.bindPopup(popup_4050e91543ce8a0d0871801365148cac)
+        ;
+
+        
+    
+    
+            var poly_line_322d3162d89d7b384a0682eed9d0680a = L.polyline(
+                [[38.541065, -121.741017], [38.541298, -121.741398], [38.54126, -121.741653], [38.541749, -121.741793], [38.54096, -121.74606], [38.540165, -121.745803], [38.539891, -121.746563], [38.53963, -121.746409], [38.539543, -121.746414], [38.539028, -121.747185], [38.538497, -121.747655], [38.538381, -121.748235], [38.538416, -121.748287], [38.538648, -121.748371], [38.538595, -121.748801], [38.538761, -121.748856], [38.538731, -121.749212]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_4f66e503ed28ec4b9fc4d7cbf57da220);
+        
+    
+        var popup_5bcab2271f8b9186b5cd06f6140ec0fc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_453c42208e344ccef664095cd0c14ac2 = $(`<div id="html_453c42208e344ccef664095cd0c14ac2" style="width: 100.0%; height: 100.0%;">Walker B's Path</div>`)[0];
+                popup_5bcab2271f8b9186b5cd06f6140ec0fc.setContent(html_453c42208e344ccef664095cd0c14ac2);
+            
+        
+
+        poly_line_322d3162d89d7b384a0682eed9d0680a.bindPopup(popup_5bcab2271f8b9186b5cd06f6140ec0fc)
+        ;
+
+        
+    
+</script>
+</html>

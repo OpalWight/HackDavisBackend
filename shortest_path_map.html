@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3a0086f464f1f797807304c831636dcc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3a0086f464f1f797807304c831636dcc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3a0086f464f1f797807304c831636dcc = L.map(
+                "map_3a0086f464f1f797807304c831636dcc",
+                {
+                    center: [38.5678235, -121.4249071],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5db008e088659bed30c43b4e502dc9d9 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5db008e088659bed30c43b4e502dc9d9.addTo(map_3a0086f464f1f797807304c831636dcc);
+        
+    
+            var marker_3461d3e80d6545b6950f8dc3f032b29e = L.marker(
+                [37.7938199, -122.3948144],
+                {
+}
+            ).addTo(map_3a0086f464f1f797807304c831636dcc);
+        
+    
+            var icon_3e52e86ff943953c93c9a63d461837ef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_71f36e30626a455690bc93db175b5098 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_462df354e19c1220b219cacaf9649eee = $(`<div id="html_462df354e19c1220b219cacaf9649eee" style="width: 100.0%; height: 100.0%;">1 Market St, San Francisco, CA</div>`)[0];
+                popup_71f36e30626a455690bc93db175b5098.setContent(html_462df354e19c1220b219cacaf9649eee);
+            
+        
+
+        marker_3461d3e80d6545b6950f8dc3f032b29e.bindPopup(popup_71f36e30626a455690bc93db175b5098)
+        ;
+
+        
+    
+    
+                marker_3461d3e80d6545b6950f8dc3f032b29e.setIcon(icon_3e52e86ff943953c93c9a63d461837ef);
+            
+    
+            var marker_0d939ded42d1ecb7ddf5e9c8fb1e0f95 = L.marker(
+                [38.5678235, -121.4249071],
+                {
+}
+            ).addTo(map_3a0086f464f1f797807304c831636dcc);
+        
+    
+            var icon_136c1ee5b08af3bec04e6b474bfc792f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0123cfa0e542ad84c4eca0794b2aa93e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d00c08aa20650a4e7a4dcccbb489476 = $(`<div id="html_4d00c08aa20650a4e7a4dcccbb489476" style="width: 100.0%; height: 100.0%;">6000 J St, Sacramento, CA</div>`)[0];
+                popup_0123cfa0e542ad84c4eca0794b2aa93e.setContent(html_4d00c08aa20650a4e7a4dcccbb489476);
+            
+        
+
+        marker_0d939ded42d1ecb7ddf5e9c8fb1e0f95.bindPopup(popup_0123cfa0e542ad84c4eca0794b2aa93e)
+        ;
+
+        
+    
+    
+                marker_0d939ded42d1ecb7ddf5e9c8fb1e0f95.setIcon(icon_136c1ee5b08af3bec04e6b474bfc792f);
+            
+    
+            var marker_fc1d5ba93490933238d965c715cdb468 = L.marker(
+                [38.5397258, -121.749918],
+                {
+}
+            ).addTo(map_3a0086f464f1f797807304c831636dcc);
+        
+    
+            var icon_bac3b4da7a9209aba9a44311e6c01cff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4300156c91aaca05b2b841811e71c050 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_408b7563702336a4970d9608e20e7835 = $(`<div id="html_408b7563702336a4970d9608e20e7835" style="width: 100.0%; height: 100.0%;">1 Shields Ave, Davis, CA</div>`)[0];
+                popup_4300156c91aaca05b2b841811e71c050.setContent(html_408b7563702336a4970d9608e20e7835);
+            
+        
+
+        marker_fc1d5ba93490933238d965c715cdb468.bindPopup(popup_4300156c91aaca05b2b841811e71c050)
+        ;
+
+        
+    
+    
+                marker_fc1d5ba93490933238d965c715cdb468.setIcon(icon_bac3b4da7a9209aba9a44311e6c01cff);
+            
+    
+            var poly_line_5dbf8bee5a522db7a7461401a455a6ab = L.polyline(
+                [[38.56764, -121.424856], [38.553833, -121.436646], [38.577173, -121.524394], [38.575598, -121.568924], [38.545198, -121.728137], [38.525041, -121.764658], [38.353599, -121.979719], [38.339785, -122.014053], [38.31471, -122.032468], [38.291022, -122.035036], [38.249507, -122.070178], [38.2239, -122.127502], [38.162912, -122.209226], [38.121898, -122.230344], [38.054208, -122.226425], [37.996979, -122.286428], [37.988987, -122.31294], [37.9609, -122.330306], [37.829025, -122.294543], [37.818081, -122.353834], [37.785116, -122.392962], [37.794159, -122.395243]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_3a0086f464f1f797807304c831636dcc);
+        
+</script>
+</html>
