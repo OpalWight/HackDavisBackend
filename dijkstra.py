@@ -148,7 +148,7 @@ def create_walking_graph(locations):
     
     return graph
 
-def create_map_visualization(graph, path1, path2, locations):
+def create_map_visualization(graph, path1, path2, locations, start1, start2):
     # Create a map centered at the first location of path1
     start_coords = get_coordinates(locations[path1[0]])
     if not start_coords:
@@ -157,16 +157,38 @@ def create_map_visualization(graph, path1, path2, locations):
     
     m = folium.Map(location=start_coords, zoom_start=15)
     
-    # Add markers for all locations
-    for node in graph:
-        coords = get_coordinates(locations[node])
+    # Add markers for all locations with letters
+    for node_letter, location_name in locations.items():
+        coords = get_coordinates(location_name)
         if coords:
             folium.Marker(
                 location=coords,
-                popup=locations[node],
-                icon=folium.Icon(color='blue')
+                popup=location_name,
+                icon=folium.DivIcon(
+                    icon_size=(20, 20),
+                    icon_anchor=(10, 10),
+                    html=f'<div style="font-size: 12pt; color: black; background-color: white; border-radius: 50%; width: 20px; height: 20px; text-align: center; line-height: 20px; border: 1px solid black;">{node_letter}</div>',
+                )
             ).add_to(m)
-    
+
+    # Add distinct markers for Walker A's start
+    start1_coords = get_coordinates(locations[start1])
+    if start1_coords:
+        folium.Marker(
+            location=start1_coords,
+            popup=f"Walker A Start: {locations[start1]}",
+            icon=folium.Icon(color='red', icon='play', prefix='fa')
+        ).add_to(m)
+
+    # Add distinct markers for Walker B's start
+    start2_coords = get_coordinates(locations[start2])
+    if start2_coords:
+        folium.Marker(
+            location=start2_coords,
+            popup=f"Walker B Start: {locations[start2]}",
+            icon=folium.Icon(color='blue', icon='play', prefix='fa')
+        ).add_to(m)
+
     # Draw Walker A's path
     if len(path1) > 1:
         coords_str = ";".join([f"{get_coordinates(locations[node])[1]},{get_coordinates(locations[node])[0]}" for node in path1])
@@ -280,4 +302,4 @@ if __name__ == "__main__":
     m, map_html = create_map_visualization(graph, path1, path2, locations)
     if m:
         m.save('walking_paths_map.html')
-        print("\nMap saved as 'walking_paths_map.html'") 
+        print("\nMap saved as 'walking_paths_map.html'")

@@ -35,7 +35,7 @@ def get_shortest_path():
         path1, path2, distance2 = dijkstra.find_shared_path(start1, end1, start2, end2)
 
         # Create map visualization
-        map_obj, map_html = create_map_visualization(graph, path1, path2, locations)
+        map_obj, map_html = create_map_visualization(graph, path1, path2, locations, start1, start2)
         if map_obj:
             map_obj.save('walking_paths_map.html')
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import './styles.css';
 
 function App() {
-  const [locations, setLocations] = useState(['', '']);
+  const [locations, setLocations] = useState(['', '', '']);
   const [start1, setStart1] = useState('');
   const [end1, setEnd1] = useState('');
   const [start2, setStart2] = useState('');
@@ -11,6 +11,7 @@ function App() {
   const [mapHtml, setMapHtml] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState('');
 
   const testBackend = async () => {
     try {
@@ -36,8 +37,26 @@ function App() {
     }
   };
 
-  const handleAddLocation = () => {
-    setLocations([...locations, '']);
+  
+
+  const generateRandomLocation = () => {
+    const randomAddresses = [
+      "1000 Sycamore Ln, Davis, CA",
+      "2320 Chiles Rd, Davis, CA",
+      "1471 Drew Ave, Davis, CA",
+      "500 1st St, Davis, CA",
+      "1 Shields Ave, Davis, CA",
+      "451 E 8th St, Davis, CA",
+      "2000 Cowell Blvd, Davis, CA",
+      "123 Main St, Davis, CA",
+      "456 Oak Ave, Davis, CA",
+      "789 Pine Ln, Davis, CA"
+    ];
+    const newLocations = locations.map(() => {
+      const randomIndex = Math.floor(Math.random() * randomAddresses.length);
+      return randomAddresses[randomIndex];
+    });
+    setLocations(newLocations);
   };
 
   const handleLocationChange = (index: number, value: string) => {
@@ -51,6 +70,7 @@ function App() {
     setError('');
     setMapHtml('');
     setLoading(true);
+    setLoadingMessage('Initializing...');
     
     console.log('Form submitted with data:', {
       locations: locations.reduce((acc, loc, i) => ({ ...acc, [String.fromCharCode(65 + i)]: loc }), {}),
@@ -61,6 +81,7 @@ function App() {
     });
     
     try {
+      setLoadingMessage('Sending request to backend...');
       console.log('Making request to /api/shortest-path...');
       const response = await fetch('/api/shortest-path', {
         method: 'POST',
@@ -80,20 +101,25 @@ function App() {
       console.log('Response headers:', response.headers);
       
       if (!response.ok) {
+        setLoadingMessage('Error received from backend.');
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
+      setLoadingMessage('Processing response...');
       const data = await response.json();
       console.log('Response data:', data);
       
       if (data.error) {
         setError(data.error + (data.traceback ? `\n\n${data.traceback}` : ''));
+        setLoadingMessage('Error: ' + data.error);
       } else {
         setMapHtml(data.map_html);
+        setLoadingMessage('Map generated successfully!');
       }
     } catch (err) {
       console.error('Request failed:', err);
       setError(`Request failed: ${err instanceof Error ? err.message : 'An unexpected error occurred.'}`);
+      setLoadingMessage('Request failed: ' + (err instanceof Error ? err.message : 'An unexpected error occurred.'));
     } finally {
       setLoading(false);
     }
@@ -114,7 +140,7 @@ function App() {
         <li><b>Shared Path Finding:</b> To find a path for Walker B that encourages sharing the path with Walker A, a new graph is created. In this new graph, the weights of the edges that are part of Walker A's path are reduced (multiplied by 0.5). This makes it more likely for Dijkstra's algorithm to choose these paths for Walker B.</li>
         <li><b>Walker B's Path:</b> Finally, Dijkstra's algorithm is run on the modified graph to find the shortest path for Walker B.</li>
       </ol>
-      <p>Example: <br/> Location A: 1 Shields Ave, Davis, CA <br/> Location B: 500 1st St, Davis, CA <br/> Walker A Start: A <br/> Walker A End: B <br/> Walker B Start: B <br/> Walker B End: A</p>
+      <p>Example: <br/> Location A: 1 Shields Ave, Davis, CA <br/> Location B: 500 1st St, Davis, CA <br/> Location C: 451 E 8th St, Davis, CA <br/> Walker A Start: A <br/> Walker A End: B <br/> Walker B Start: B <br/> Walker B End: C</p>
       <form onSubmit={handleSubmit}>
         <h2>Locations</h2>
         {locations.map((location, index) => (
@@ -123,22 +149,28 @@ function App() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
+            style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}
           >
+            <span style={{ marginRight: '10px', fontWeight: 'bold' }}>{String.fromCharCode(65 + index)}:</span>
             <input
               type="text"
               placeholder={`Location ${String.fromCharCode(65 + index)}`}
               value={location}
               onChange={(e) => handleLocationChange(index, e.target.value)}
+              style={{ flexGrow: 1 }}
             />
           </motion.div>
         ))}
+        
+
         <motion.button 
           type="button" 
-          onClick={handleAddLocation}
+          onClick={generateRandomLocation}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          style={{ marginRight: '10px', backgroundColor: '#007bff' }}
         >
-          Add Location
+          Generate Random Locations
         </motion.button>
 
         <motion.button 
@@ -171,7 +203,7 @@ function App() {
         >
           {loading ? (
             <span>
-              <span className="loading-spinner">⏳</span> Finding Path...
+              <span className="loading-spinner">⏳</span> {loadingMessage}
             </span>
           ) : (
             'Find Path'
