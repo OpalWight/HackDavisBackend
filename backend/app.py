@@ -49,7 +49,12 @@ def get_shortest_path():
         return jsonify({'error': str(e), 'traceback': traceback.format_exc()}), 500
 
 if __name__ == '__main__':
-    print("Starting Flask server on http://localhost:5000")
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_ENV') == 'development'
+    
+    print(f"Starting Flask server on port {port}")
     print("Available endpoints:")
+    print("  GET /api/test")
     print("  POST /api/shortest-path")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=debug, host='0.0.0.0', port=port)
