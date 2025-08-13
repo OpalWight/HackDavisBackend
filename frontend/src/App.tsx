@@ -15,25 +15,14 @@ function App() {
 
   const testBackend = async () => {
     try {
-      console.log('Testing backend connection via proxy...');
-      const response = await fetch('/api/test');
+      console.log('Testing backend connection...');
+      const response = await fetch('https://herdupbackend.onrender.com/api/test');
       const data = await response.json();
       console.log('Backend test response:', data);
-      alert('Backend is working via proxy! Check console for details.');
+      alert('Backend is working! Check console for details.');
     } catch (err) {
-      console.error('Proxy test failed:', err);
-      
-      // Try direct connection to production backend
-      try {
-        console.log('Testing direct backend connection...');
-        const directResponse = await fetch('https://herdupbackend.onrender.com/api/test');
-        const directData = await directResponse.json();
-        console.log('Direct backend test response:', directData);
-        alert('Backend is working but proxy failed! Using direct connection. Check console.');
-      } catch (directErr) {
-        console.error('Direct backend test also failed:', directErr);
-        alert('Backend connection completely failed! Check if backend server is running.');
-      }
+      console.error('Backend test failed:', err);
+      alert('Backend connection failed! Check if backend server is running.');
     }
   };
 
@@ -82,8 +71,8 @@ function App() {
     
     try {
       setLoadingMessage('Sending request to backend...');
-      console.log('Making request to /api/shortest-path...');
-      const response = await fetch('/api/shortest-path', {
+      console.log('Making request to https://herdupbackend.onrender.com/api/shortest-path...');
+      const response = await fetch('https://herdupbackend.onrender.com/api/shortest-path', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
