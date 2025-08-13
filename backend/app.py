@@ -4,21 +4,30 @@ from dijkstra import Dijkstra, create_walking_graph, create_map_visualization
 import traceback
 
 app = Flask(__name__)
-CORS(app, origins=['https://herdup-hackdavis.vercel.app', 'http://localhost:3000'], 
-     methods=['GET', 'POST', 'OPTIONS'],
-     allow_headers=['Content-Type', 'Authorization'])
+CORS(app)
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', 'https://herdup-hackdavis.vercel.app')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 @app.route('/', methods=['GET'])
 def health_check():
     return jsonify({'status': 'Backend is running!', 'endpoints': ['/api/test', '/api/shortest-path']})
 
-@app.route('/api/test', methods=['GET'])
+@app.route('/api/test', methods=['GET', 'OPTIONS'])
 def test_endpoint():
+    if request.method == 'OPTIONS':
+        return '', 200
     print("Test endpoint called!")
     return jsonify({'message': 'Backend is working!', 'status': 'ok'})
 
-@app.route('/api/shortest-path', methods=['POST'])
+@app.route('/api/shortest-path', methods=['POST', 'OPTIONS'])
 def get_shortest_path():
+    if request.method == 'OPTIONS':
+        return '', 200
     print("Received request to /api/shortest-path")
     try:
         data = request.get_json()
