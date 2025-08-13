@@ -168,7 +168,7 @@ function App() {
           onClick={generateRandomLocation}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          style={{ marginRight: '10px', backgroundColor: '#007bff' }}
+          style={{ marginRight: '10px', backgroundColor: '#4f473b' }}
         >
           Generate Random Locations
         </motion.button>
@@ -178,7 +178,7 @@ function App() {
           onClick={testBackend}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          style={{ marginLeft: '10px', backgroundColor: '#28a745' }}
+          style={{ marginLeft: '10px', backgroundColor: '#4f473b' }}
         >
           Test Backend
         </motion.button>
