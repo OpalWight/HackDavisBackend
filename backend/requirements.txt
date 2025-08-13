@@ -5,4 +5,5 @@ networkx
 numpy
 folium
 geopy
-requests 
+requests
+gunicorn 
