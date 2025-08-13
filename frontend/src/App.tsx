@@ -23,16 +23,16 @@ function App() {
     } catch (err) {
       console.error('Proxy test failed:', err);
       
-      // Try direct connection
+      // Try direct connection to production backend
       try {
         console.log('Testing direct backend connection...');
-        const directResponse = await fetch('http://localhost:5000/api/test');
+        const directResponse = await fetch('https://herdupbackend.onrender.com/api/test');
         const directData = await directResponse.json();
         console.log('Direct backend test response:', directData);
         alert('Backend is working but proxy failed! Using direct connection. Check console.');
       } catch (directErr) {
         console.error('Direct backend test also failed:', directErr);
-        alert('Backend connection completely failed! Check if Flask server is running.');
+        alert('Backend connection completely failed! Check if backend server is running.');
       }
     }
   };
@@ -101,8 +101,10 @@ function App() {
       console.log('Response headers:', response.headers);
       
       if (!response.ok) {
-        setLoadingMessage('Error received from backend.');
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorText = await response.text();
+        console.error('Backend error response:', errorText);
+        setLoadingMessage(`Error received from backend: ${response.status}`);
+        throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
       }
       
       setLoadingMessage('Processing response...');
