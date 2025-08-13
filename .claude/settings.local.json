@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(python -m pip install:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(move app.py backend/)",
+      "Bash(move:*)",
+      "Bash(move requirements.txt backend/)",
+      "Bash(move run.bat backend/)",
+      "Bash(mv:*)"
     ],
     "deny": []
   }

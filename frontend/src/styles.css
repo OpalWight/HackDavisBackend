@@ -1,8 +1,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: #353a31;
+    color: #f0f2f5;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -12,23 +12,23 @@ body {
 }
 
 .App {
-    background: white;
+    background: #312e28;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
     width: 100%;
     max-width: 600px;
     text-align: center;
 }
 
 h1 {
-    color: #1877f2;
+    color: #5f725d;
     margin-bottom: 24px;
 }
 
 h2 {
-    color: #333;
-    border-bottom: 2px solid #1877f2;
+    color: #f0f2f5;
+    border-bottom: 2px solid #5f725d;
     padding-bottom: 8px;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -39,17 +39,19 @@ input[type="text"] {
     padding: 12px;
     margin-bottom: 12px;
     border-radius: 6px;
-    border: 1px solid #ddd;
+    border: 1px solid #4f473b;
+    background-color: #353a31;
+    color: #f0f2f5;
     transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus {
-    border-color: #1877f2;
+    border-color: #5f725d;
     outline: none;
 }
 
 button {
-    background-color: #1877f2;
+    background-color: #5f725d;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -61,20 +63,20 @@ button {
 }
 
 button:hover {
-    background-color: #166fe5;
+    background-color: #2e4b36;
 }
 
 button[type="button"] {
-    background-color: #e4e6eb;
-    color: #333;
+    background-color: #4f473b;
+    color: #f0f2f5;
 }
 
 button[type="button"]:hover {
-    background-color: #dcdfe3;
+    background-color: #312e28;
 }
 
 iframe {
-    border: 1px solid #ddd;
+    border: 1px solid #4f473b;
     border-radius: 6px;
     margin-top: 30px;
 }
@@ -83,13 +85,14 @@ iframe {
     margin-top: 40px;
     text-align: left;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #353a31;
     border-radius: 8px;
+    border: 1px solid #4f473b;
 }
 
 .algorithm-description h2 {
     border-bottom: none;
-    color: #1877f2;
+    color: #5f725d;
 }
 
 .algorithm-description p {
@@ -132,5 +135,5 @@ button:disabled {
 }
 
 button:disabled:hover {
-    background-color: #1877f2 !important;
+    background-color: #5f725d !important;
 }
